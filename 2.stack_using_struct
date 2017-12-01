@@ -1,0 +1,73 @@
+//stack using struct
+#include<stdio.h>
+
+struct stack
+		{
+          int a[100];
+          int top;
+          int max;
+		}s;
+         
+           
+          
+
+int main()
+		{  int op,popped;
+		 s.top=-1;
+         s.max=100;  
+    do{
+           printf("enter ur option\n1.push\n2.pop\n3.exit\n");
+           scanf("%d",&op);
+         switch(op)
+			{ 
+             case 1:
+					push();
+					break;
+			 case 2:
+					popped=pop();
+                    if(popped==999)
+						{
+						printf("stack is empty\n");
+						}
+                    else 
+                       {
+                       printf("popped element is %d\n",popped);
+					   }
+					break;
+             case 3:
+					printf("exited\n");
+                    break;
+             default:
+					printf("Invalid option\n");						
+			}
+        }while(op!=3);
+		}
+ push()
+        { 
+		 if((s.top)+1==100)
+            {
+             printf("stack is full\n");
+			}
+           else 
+            { 
+              (s.top)++;
+              printf("enter element\n");
+              scanf("%d",&s.a[s.top]);
+              printf("element is inserted in stack successfully\n");
+			}
+		}
+int pop()
+		{ int n;
+		  if(s.top==-1)
+			{ 
+             
+             return 999;
+			}
+          else
+            { n=s.a[s.top];
+              s.top--;
+              return n; 
+             
+			}
+
+		}
